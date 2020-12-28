@@ -19,7 +19,6 @@ public class DeadScript : MonoBehaviour
             PlayerPrefs.SetInt("score", score);
         }
 
-
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("MenuPrincipal");
     }

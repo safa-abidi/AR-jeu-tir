@@ -2,6 +2,10 @@
 using UnityEngine.UI;
 public class ShootingTarget : MonoBehaviour
 {
+    AudioSource MyAudioSource;
+    [SerializeField]
+    AudioClip ShootSound, ExplosionSound;
+
     [SerializeField]
     GameObject prefabExplosion;
 
@@ -16,6 +20,8 @@ public class ShootingTarget : MonoBehaviour
     private void Start()
     {
        GameObject.Find("BestScore").GetComponent<Text>().text = "Best Score " + PlayerPrefs.GetInt("score").ToString();
+        MyAudioSource = GetComponent<AudioSource>();
+
     }
 
 
@@ -32,12 +38,15 @@ public class ShootingTarget : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity)) //Renvoie V si le rayon croise un collider
             {
                 Destroy(hit.collider.transform.gameObject); } // Détruire l’ennemi
+                MyAudioSource.PlayOneShot(ShootSound); // lancer le bruitage de tir 
 
-                //for the explotion
-                GameObject Go = Instantiate(prefabExplosion, hit.transform.position, Quaternion.identity);             
-                Destroy(Go, 3f);
 
-                Monscore++;
+            //for the explotion
+            GameObject Go = Instantiate(prefabExplosion, hit.transform.position, Quaternion.identity);             
+            Destroy(Go, 1f);
+            MyAudioSource.PlayOneShot(ExplosionSound); // lancer le bruitage de l’explosion 
+
+            Monscore++;
 
         }
     }
