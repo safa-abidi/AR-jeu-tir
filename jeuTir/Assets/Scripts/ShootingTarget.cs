@@ -41,12 +41,12 @@ public class ShootingTarget : MonoBehaviour
                 MyAudioSource.PlayOneShot(ShootSound); // lancer le bruitage de tir 
 
 
-            //for the explotion
-            GameObject Go = Instantiate(prefabExplosion, hit.transform.position, Quaternion.identity);             
-            Destroy(Go, 1f);
-            MyAudioSource.PlayOneShot(ExplosionSound); // lancer le bruitage de l’explosion 
+                //for the explotion
+                GameObject Go = Instantiate(prefabExplosion, hit.transform.position, Quaternion.identity);             
+                Destroy(Go, 3f);
+                MyAudioSource.PlayOneShot(ExplosionSound); // lancer le bruitage de l’explosion 
 
-            Monscore++;
+                Monscore++;
 
         }
     }

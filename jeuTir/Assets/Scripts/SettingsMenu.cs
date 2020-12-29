@@ -36,11 +36,6 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullScreen = true;
     }
 
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("volume", volume);
-    }
-
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
