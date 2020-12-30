@@ -3,10 +3,10 @@ public class GameOverLooser : MonoBehaviour
 {
     [SerializeField]
     GameObject GameOver;
-    void OnCollisionEnter(Collision collision)
+   
+    public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("wini taswiraaa game overrrrrr :'((((((");
-
+        Debug.Log("game overrrrrr :'((((((");
         GameOver.SetActive(true);
     }
 }
